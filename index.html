@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <title>Check Khodam</title> 
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container {
+        background-color: #f0f0f0;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        width: 400px;
+    }
+    h2 {
+        text-align: center;
+    }
+    form {
+        text-align: center;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        color: black;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #00ffea;
+        color: black;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: ##00d5ff;
+        
+    }
+    .result {
+        margin-top: 20px;
+        text-align: center;
+    }
+</style> 
+ </head> 
+ <body> 
+  <div class="container"> 
+   <h2>Cek Khodam Gratis</h2> 
+   <form onsubmit="return handleSubmit(event)"> <label for="inputName">Nama:</label> 
+    <input type="text" id="inputName" name="inputName" required> 
+    <br> <button type="submit">Check Khodam</button> 
+   </form> 
+   <div class="result" id="result"> <!-- Hasil dari JavaScript akan ditampilkan di sini --> 
+   </div> 
+  </div> 
+  <script>
+    // Daftar nama-nama khodam (diambil dari contoh JavaScript sebelumnya)
+    const khodamNames = [
+        "Air Cucian Beras",
+        "banaspati",
+        "frozen",
+        "mak lampir",
+        "cacing emas",
+        "gatau",
+        "jomok",
+        "kadal berkaki 5",
+        "ular emas",
+        "siluman naga",
+        "naga bearbrand",
+        "minotaur",
+        "Sepeda Ontel",
+        "Titid Terbang",
+        "alok epep",
+        "Baju Robek",
+        "Buaya Putih",
+        "Kuntilanak Merah",
+        "Pocong Bambu",
+        "Tuyul Emas",
+        "naga hytam",
+        "lampir gingsul 7",
+        "kak ros",
+        "jarjit",
+        "ijat",
+        "buaya darat",
+        "tunggu kiris",
+        "bajol ijo",
+        "siluman angsa",
+        "dragon ball",
+        "banteng merah",
+        "kosong",
+        "gak punya khodam",
+        "kodam nya ilang",
+        "kosong",
+        "kodamnya ngambek",
+        
+        
+        // Tambahkan nama-nama khodam lainnya sesuai kebutuhan
+    ];
+
+    // Fungsi untuk mengembalikan nama khodam secara acak
+    function getRandomKhodam() {
+        const randomIndex = Math.floor(Math.random() * khodamNames.length);
+        return khodamNames[randomIndex];
+    }
+
+    // Function untuk menangani submit form
+    function handleSubmit(event) {
+        event.preventDefault(); // Menghentikan aksi default form submit
+
+        // Mengambil nilai input nama dari form
+        const inputName = document.getElementById('inputName').value;
+
+        // Memilih nama khodam secara acak
+        const khodamName = getRandomKhodam();
+
+        // Menampilkan hasil ke dalam div dengan id 'result'
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+            <p><strong>Nama:</strong> ${inputName}</p>
+            <p><strong>Khodam:</strong> ${khodamName}</p>
+            <p><strong>BY: khan.nn_</strong></p>
+        `;
+
+        return false; // Mengembalikan false agar halaman tidak melakukan reload
+    }
+</script> 
+ </body>
+</html>
